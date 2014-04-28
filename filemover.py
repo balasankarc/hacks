@@ -1,20 +1,29 @@
+#! /usr/bin/python
 import os
+import sys
 import shutil
-cwd=os.getcwd()
+try:
+    cwd = sys.argv[1]
+except:
+    cwd=os.getcwd()
 for i in os.listdir(cwd):
     filename=str(i)
-    if filename.lower().endswith("pdf") or filename.lower().endswith("doc") or filename.lower().endswith("docx") or filename.lower().endswith("xls") or filename.lower().endswith("xlsx"):
+    filepath=cwd+"/"+filename
+    if filepath.lower().endswith("pdf") or filepath.lower().endswith("doc") or filepath.lower().endswith("docx") or filepath.lower().endswith("xls") or filepath.lower().endswith("xlsx") or filepath.lower().endswith("odt"):
         print "Document - "+filename
-        shutil.move(filename,"/home/balasankarc/Documents/"+filename)
-    elif filename.lower().endswith("jpg") or filename.lower().endswith("png") or filename.lower().endswith("tif") or filename.lower().endswith("tiff"):
-        shutil.move(filename,"/home/balasankarc/Pictures/"+filename)
+        shutil.move(filepath,"/home/balasankarc/Documents/"+filename)
+    elif filepath.lower().endswith("jpg") or filepath.lower().endswith("png") or filepath.lower().endswith("tif") or filepath.lower().endswith("tiff") or filepath.lower().endswith("svg"):
+        shutil.move(filepath,"/home/balasankarc/Pictures/"+filename)
         print "Picture - "+filename
-    elif filename.lower().endswith("mp3") or filename.lower().endswith("wav"):
-        shutil.move(filename,"/home/balasankarc/Music/"+filename)
+    elif filepath.lower().endswith("mp3") or filepath.lower().endswith("wav"):
+        shutil.move(filepath,"/home/balasankarc/Music/"+filename)
         print "Music  - "+filename
-    elif filename.lower().endswith("rar") or filename.lower().endswith("zip") or filename.lower().endswith("gz"):
-        shutil.move(filename,"/home/balasankarc/Downloads/Compressed/"+filename)
+    elif filepath.lower().endswith("rar") or filepath.lower().endswith("zip") or filepath.lower().endswith("gz") or filepath.lower().endswith("xz"):
+        shutil.move(filepath,"/home/balasankarc/Downloads/Compressed/"+filename)
         print "Compressed  - "+filename
-    elif filename.lower().endswith("torrent"):
-        shutil.move(filename,"/home/balasankarc/Downloads/Torrents/"+filename)
-        print "Compressed  - "+filename
+    elif filepath.lower().endswith("torrent"):
+        shutil.move(filepath,"/home/balasankarc/Downloads/Torrents/"+filename)
+        print "Torrent - "+filename
+    elif filepath.lower().endswith("deb"):
+        shutil.move(filepath,"/home/balasankarc/Downloads/Torrents/"+filename)
+        print "Setup FIle  - "+filename
