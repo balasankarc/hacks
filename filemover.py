@@ -15,15 +15,18 @@ for i in os.listdir(cwd):
     elif filepath.lower().endswith("jpg") or filepath.lower().endswith("png") or filepath.lower().endswith("tif") or filepath.lower().endswith("tiff") or filepath.lower().endswith("svg"):
         shutil.move(filepath,"/home/balasankarc/Pictures/"+filename)
         print "Picture - "+filename
+    elif filepath.lower().endswith("mp4") or filepath.lower().endswith("avi") or filepath.lower().endswith("mpg") or filepath.lower().endswith("flv") or filepath.lower().endswith("webm"):
+        shutil.move(filepath,"/home/balasankarc/Videos/"+filename)
+        print "Videos - "+filename
     elif filepath.lower().endswith("mp3") or filepath.lower().endswith("wav"):
         shutil.move(filepath,"/home/balasankarc/Music/"+filename)
-        print "Music  - "+filename
+        print "Music - "+filename
     elif filepath.lower().endswith("rar") or filepath.lower().endswith("zip") or filepath.lower().endswith("gz") or filepath.lower().endswith("xz"):
         shutil.move(filepath,"/home/balasankarc/Downloads/Compressed/"+filename)
-        print "Compressed  - "+filename
+        print "Compressed - "+filename
     elif filepath.lower().endswith("torrent"):
         shutil.move(filepath,"/home/balasankarc/Downloads/Torrents/"+filename)
         print "Torrent - "+filename
     elif filepath.lower().endswith("deb"):
         shutil.move(filepath,"/home/balasankarc/Downloads/Torrents/"+filename)
-        print "Setup FIle  - "+filename
+        print "Setup FIle - "+filename
